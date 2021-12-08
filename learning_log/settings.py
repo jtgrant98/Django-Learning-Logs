@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Third party apps
+    'bootstrap3',
+
     #my_apps
     'MainApp',
     'users',
@@ -123,3 +126,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = 'users:login'
+
+# Settings for django-bootstrap3
+
+BOOTSTRAP3 = {
+    'include_jquery': True,
+    }
