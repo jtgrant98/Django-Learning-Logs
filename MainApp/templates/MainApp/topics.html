@@ -1,22 +1,21 @@
 {% extends "MainApp/base.html" %}
 
+{% block header %}
+<h1>Topics</h1>
+{% endblock header %}
 {% block content %}
-
-<p>Topics</p>
-
 <ul>
     {% for topic in topics %}
-
     <li>
-       <a href="{% url 'MainApp:topic' topic.id %}">{{ topic }} - {{ topic.date_added }}</a>
+        <h3>
+            <a href="{% url 'MainApp:topic' topic.id %}">{{ topic }}</a>
+        </h3>
     </li>
     {% empty %}
-    <li> no topics have been added yet.</li>
+    <li>No topics have been added yet.</li>
     {% endfor %}
-
 </ul>
 
-<a href="{% url 'MainApp:new_topic' %}">Add a new topic</a>
-
+<h3><a href="{% url 'MainApp:new_topic' %}">Add new topic</h3>
 
 {% endblock content %} 

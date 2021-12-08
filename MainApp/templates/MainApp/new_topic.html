@@ -1,16 +1,24 @@
 {% extends "MainApp/base.html" %}
 
+{% load bootstrap3 %}
+
+{% block header %}
+<h2>Add a new topic:</h2>
+{% endblock header %}
 {% block content %}
-<p>Add a new topic:</p>
 
-<form action="{% url 'MainApp:new_topic' %}" method = 'post'>
-    {% csrf_token %}
+<form action="{% url 'MainApp:new_topic' %}" method='post'
+    class="form">
 
+{% csrf_token %}
+{% bootstrap_form form %}
 
-    {{form.as_p}}
-
-    <button name="submit">Add topic</button>
+{% buttons %}
+<button name="submit" class="btn btn-primary">add topic</button>
+{% endbuttons %}
 
 </form>
+
+
 
 {% endblock content %} 
