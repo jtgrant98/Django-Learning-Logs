@@ -1,22 +1,27 @@
 {% extends "MainApp/base.html" %}
 
-{% load bootstrap3 %}
+{% load bootstrap4 %}
 
-{% block header %}
+
+{% block page_header %}
 <h2>Log in to your account.</h2>
+{% endblock page_header %}
 
-{% endblock header %}
+
+
 {% block content %}
+<p>Your username and password didn't match. Please try again.</p>
+
 <form method="post" action="{% url 'users:login' %}" class="form">
     {% csrf_token %}
-
-{% bootstrap_form form %}
+    {% bootstrap_form form %}
 
 {% buttons %}
-<button name="submit" class="btn btn-primary">log in</button>
+<button name="submit" class="btn btn-primary">Log in</button>
 {% endbuttons %}
 
-<input type="hidden" name="next" value="{% url 'MainApp:index' %}" />
+<input type="hidden" name="next" value="{% url 'MainApp:index' %}"/>
+
 </form>
 
-{% endblock content %} 
+{% endblock content %}

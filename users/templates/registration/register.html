@@ -2,15 +2,13 @@
 
 {% block content %}
 
-
 <form action="{% url 'users:register' %}" method="post">
     {% csrf_token %}
     {{form.as_p}}
 
     <button name="submit">Register</button>
-    <input type="hidden" name="next"
-    value = "{% url 'MainApp:index' %}" />
+    <input type="hidden" name="next" value="{% url 'MainApp:index' %}" />
 
 </form>
 
-{% endblock content %} 
+{% endblock content %}
